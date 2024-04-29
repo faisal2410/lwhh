@@ -1,5 +1,17 @@
 <?php
+$allowedTypes=['image/png','image/jpg','image/jpeg'];
+$size=5*1024*1024;
 
+if(isset($_FILES['photo'])){
+    $totalFiles=count($_FILES['photo']['name']);
+    for($i=0; $i<$totalFiles; $i++){
+
+        if(in_array($_FILES['photo']['type'][$i],$allowedTypes)!==false && $_FILES['photo']['size'][$i]<$size){
+    
+            move_uploaded_file($_FILES['photo']['tmp_name'][$i],"./files/".$_FILES['photo']['name'][$i]);
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +41,10 @@
           
                     <pre>
                     <p>
-                     <?php   print_r($_FILES); ?>
+                     <?php   
+                     print_r($_POST);
+                     print_r($_FILES);
+                      ?>
                     </p>
                     </pre>
              
@@ -45,7 +60,9 @@
                     <input type="text" name="lname" id="lname">
 
                     <label for="photo">Photo</label>
-                    <input type="file" name="photo" id="photo"><br/>
+                    <input type="file" name="photo[]" id="photo"><br/>
+                    <input type="file" name="photo[]" id="photo"><br/>
+                    <input type="file" name="photo[]" id="photo"><br/>
 
                     <button type="submit">Submit</button>
 
