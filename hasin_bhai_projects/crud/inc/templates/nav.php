@@ -5,7 +5,8 @@
 
 			<?php if ( hasPrivilege() ): ?>
                 |
-                <a href="/crud/index.php?task=add">Add New Student</a>
+                <a href="./crud/index.php?task=add">Add New Student</a>
+                
 			<?php endif; ?>
 
 			<?php
