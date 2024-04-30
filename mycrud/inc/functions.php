@@ -170,17 +170,3 @@ function getNewId($students)
     return $maxId + 1;
 }
 
-// function isAdmin()
-// {
-//     return ('admin' == $_SESSION['role']);
-// }
-
-// function isEditor()
-// {
-//     return ('editor' == $_SESSION['role']);
-// }
-
-// function hasPrivilege()
-// {
-//     return (isAdmin() || isEditor());
-// }
